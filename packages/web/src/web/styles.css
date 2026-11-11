@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;700;800&family=Silkscreen&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-warning: var(--warning);
+  --color-water: var(--water);
+  --color-deep: var(--deep);
+  --color-deeper: var(--deeper);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-pixel: "Silkscreen", monospace;
+  --shadow-glow: 0 0 32px rgba(57, 255, 20, 0.35);
+}
+
+:root,
+.dark {
+  --radius: 20px;
+  --background: #070a07;
+  --foreground: #e8ffe0;
+  --card: #0f1a10;
+  --card-foreground: #e8ffe0;
+  --popover: #0f1a10;
+  --popover-foreground: #e8ffe0;
+  --primary: #39ff14;
+  --primary-foreground: #06120a;
+  --secondary: #153d22;
+  --secondary-foreground: #e8ffe0;
+  --deep: #153d22;
+  --deeper: #0c2414;
+  --muted: #1a2a1c;
+  --muted-foreground: #8a9a8c;
+  --accent: #b6ff5c;
+  --accent-foreground: #06120a;
+  --destructive: #ff4d6d;
+  --warning: #ffd60a;
+  --water: #38e1ff;
+  --border: #1e2e20;
+  --input: #0b140c;
+  --ring: #39ff14;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  input,
+  button {
+    font: inherit;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  ::selection {
+    background: rgba(57, 255, 20, 0.3);
+  }
+}
+
+@layer utilities {
+  .hero-mesh {
+    background-image:
+      linear-gradient(rgba(57, 255, 20, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57, 255, 20, 0.04) 1px, transparent 1px),
+      radial-gradient(ellipse 80% 55% at 50% -10%, #1b5e2e 0%, rgba(27, 94, 46, 0.35) 40%, transparent 70%);
+    background-size:
+      24px 24px,
+      24px 24px,
+      100% 100%;
+  }
+  .card-sheen {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
